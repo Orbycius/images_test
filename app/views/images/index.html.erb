@@ -1,0 +1,9 @@
+<p id="notice"><%= flash[:notice] %></p>
+
+<%= link_to 'New image', new_image_path %>
+
+<% @images.each do |image| %>
+    <li>
+      <%= link_to image, "img/#{image.split('/').last}" %>
+    </li>
+<% end %>
