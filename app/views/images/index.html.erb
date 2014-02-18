@@ -4,6 +4,6 @@
 
 <% @images.each do |image| %>
     <li>
-      <%= link_to image, "img/#{image.split('/').last}" %>
+      <%= link_to image.split('/').last, image_path(image.split('/').last) %>
     </li>
 <% end %>

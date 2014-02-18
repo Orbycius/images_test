@@ -21,8 +21,19 @@ class ImagesController < ApplicationController
     respond_to do |format|
       if Image.save_photo image, name
         flash[:notice]= message
-        format.html { redirect_to action: 'index' }
+        format.html { redirect_to action: 'index', :status => :ok }
       end
+    end
+  end
+
+  def show
+    if Image.image_exists? params[:id]
+      send_file("#{Rails.root}/public/img/#{params[:id]}",
+                :disposition => 'inline',
+                :type => 'image/jpeg',
+                :x_sendfile => true)
+    else
+      render_404
     end
   end
 

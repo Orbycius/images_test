@@ -14,12 +14,20 @@ class Image < ActiveRecord::Base
   end
 
   def self.get_message name
-    path = File.join('public/img', name)
-    if File.exists? path
+    if Image.image_exists? name
       message = "#{name} image changed"
     else
       message = "#{name} image uploaded"
     end
     return message
+  end
+
+  def self.image_exists? name
+    path = File.join('public/img', name)
+    if File.exists? path
+      return true
+    else
+      return false
+    end
   end
 end
