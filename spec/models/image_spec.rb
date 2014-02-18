@@ -13,9 +13,4 @@ describe Image do
     File.exists?(@path).should == true
   end
 
-  it 'should return 404' do
-    get :show, {controller: 'pages', id: 'not_existing_page_321'}
-    expect(response.status).to eq(404)
-  end
-
 end
