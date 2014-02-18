@@ -5,7 +5,7 @@
     </p>
     <p>
       <%= label_tag :image, 'image' -%>
-      <%= file_field_tag :image -%>
+      <%= file_field_tag :image, :accept => 'image/*' -%>
     </p>
     <p><%= submit_tag('Upload') %></p>
 <% end %>
